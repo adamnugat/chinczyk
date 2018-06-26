@@ -1,0 +1,36 @@
+/**
+ * Załączanie czcionki Titilium Web
+ * font-family: 'Titilium Web', sans-serif;
+ */
+
+/* Light */
+
+@font-face {
+  font-family: "Titillium Web";
+  font-style: normal;
+  font-weight: 300;
+  src: local('Titillium Web Light'), local('/css/fonts/titillium-web/titillium-web.light'), url("/css/fonts/titillium-web/titillium-web.light.ttf") format('truetype');
+}
+
+@font-face {
+  font-family: "Titillium Web";
+  font-style: normal;
+  font-weight: 400;
+  src: local('Titillium Web Regular'), local('/css/fonts/titillium-web/titillium-web.regular'), url("/css/fonts/titillium-web/titillium-web.regular.ttf") format('truetype');
+}
+
+@font-face {
+  font-family: "Titillium Web";
+  font-style: normal;
+  font-weight: 600;
+  src: local('Titillium Web Bold'), local('/css/fonts/titillium-web/titillium-web.semibold'), url("/css/fonts/titillium-web/titillium-web.semibold.ttf") format('truetype');
+}
+
+/* Bold */
+
+@font-face {
+  font-family: "Titillium Web";
+  font-style: normal;
+  font-weight: 700;
+  src: local('Titillium Web Bold'), local('/css/fonts/titillium-web/titillium-web.bold'), url("/css/fonts/titillium-web/titillium-web.bold.ttf") format('truetype');
+}

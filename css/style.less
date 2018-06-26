@@ -1,0 +1,545 @@
+@import url(fonts/open-sans/open-sans.css);
+@import url(fonts/source-sans-pro/source-sans-pro.css);
+@import url(fonts/titillium-web/titillium-web.css);
+
+
+
+.roboto{
+		font-family: 'Roboto Condensed', sans-serif;
+
+}
+.radius (@size:50px){
+	border-radius: @size;
+	-moz-border-radius: @size;
+	-webkit-border-radius: @size;
+}
+.radiusBottomRight (@size:5px) {
+	border-bottom-right-radius: @size;
+	-moz-border-bottom-right-radius: @size;
+	-webkit-border-bottom-right-radius: @size;	
+}
+.radiusBottomLeft (@size:5px) {
+	border-bottom-left-radius: @size;
+	-moz-border-bottom-left-radius: @size;
+	-webkit-border-bottom-left-radius: @size;	
+}
+.radiusTopLeft (@size:5px) {
+	border-top-left-radius: @size;
+	-moz-border-top-left-radius: @size;
+	-webkit-border-top-left-radius: @size;	
+}
+.radiusTopRight (@size:5px) {
+	border-top-right-radius: @size;
+	-moz-border-top-right-radius: @size;
+	-webkit-border-top-right-radius: @size;	
+}
+.transition (@time:300ms){
+	-moz-transition: all @time ease;
+	-webkit-transition: all @time ease;
+	transition: all @time ease;    	
+}
+.blur (@px:5px){
+	-webkit-filter: ~"blur(@{px});";
+	-moz-filter: ~"blur(@{px});";
+	-ms-filter: ~"blur(@{px});";
+	-o-filter: ~"blur(@{px});";
+	filter: ~"blur(@{px});";  	
+}
+.threeDots{
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;	
+}
+.boxsizing{
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+}
+.background{
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: contain;
+}
+
+.rotate(@deg){
+	transform:rotate(@deg); 
+	-webkit-transform:rotate(@deg); 
+	-moz-transform:rotate(@deg); 
+	-o-transform:rotate(@deg);
+}
+
+.transition {
+  -moz-transition: all 300ms ease;
+  -webkit-transition: all 300ms ease;
+  transition: all 300ms ease;
+}
+
+.beforeafter{
+	&::before,
+	&::after{
+		content: '';
+		display: table;
+		clear: both;
+	}
+}
+
+
+
+
+@-webkit-keyframes changecollors {
+  0% {background-color: #323232;}
+  50% {background-color: #f0f0f0;}
+  100% {background-color: #323232;}
+}
+@-moz-keyframes changecollors {
+  0% {background-color: #323232;}
+  50% {background-color: #f0f0f0;}
+  100% {background-color: #323232;}
+}
+@-o-keyframes changecollors {
+  0% {background-color: #323232;}
+  50% {background-color: #f0f0f0;}
+  100% {background-color: #323232;}
+}
+@keyframes changecollors {
+  0% {background-color: #323232;}
+  50% {background-color: #f0f0f0;}
+  100% {background-color: #323232;}
+}
+
+
+@-webkit-keyframes changescale {
+  0% {transform: scale(1); background-color: rgba(255,255,255, 0.2);}
+  50% {transform: scale(0.8); background-color: transparent;}
+  100% {transform: scale(1); background-color: rgba(255,255,255, 0.2);}
+}
+@-moz-keyframes changescale {
+  0% {transform: scale(1); background-color: rgba(255,255,255, 0.2);}
+  50% {transform: scale(0.8); background-color: transparent;}
+  100% {transform: scale(1); background-color: rgba(255,255,255, 0.2);}
+}
+@-o-keyframes changescale {
+  0% {transform: scale(1); background-color: rgba(255,255,255, 0.2);}
+  50% {transform: scale(0.8); background-color: transparent;}
+  100% {transform: scale(1); background-color: rgba(255,255,255, 0.2);}
+}
+@keyframes changescale {
+  0% {transform: scale(1); background-color: rgba(255,255,255, 0.2);}
+  50% {transform: scale(0.8); background-color: transparent;}
+  100% {transform: scale(1); background-color: rgba(255,255,255, 0.2);}
+}
+
+
+
+
+
+*{
+	.roboto;
+	.boxsizing;
+}
+.clear{
+	clear: both;
+}
+
+@baseBackground: #79838c;
+
+html{
+	height: 100%;
+}
+body{
+	height: 100%;
+	background-color: @baseBackground;
+	overflow: hidden;
+	.transition(1000ms);
+	&.black{
+		background-color: #000000;
+	}
+	&.win{
+		background-color: #545125;
+	}
+}
+
+@fieldSize: 50px;
+@playerFigureSize : 30px;
+
+.fieldsArea{
+	margin: 120px auto 0 auto;
+	width: ~"calc((@{fieldSize} + 3px) * 11)";
+	height: ~"calc((@{fieldSize} + 3px) * 11)";
+	>div{
+		width: @fieldSize;
+		height: @fieldSize;
+		float: left;
+		margin-right: 3px;
+		margin-bottom: 3px;
+		.radius(@fieldSize);
+		&.field{
+			position: relative;
+			/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#cecece+0,ffffff+100 */
+			background: rgb(206,206,206); /* Old browsers */
+			background: -moz-radial-gradient(center, ellipse cover,  rgba(206,206,206,1) 0%, rgba(255,255,255,1) 100%); /* FF3.6-15 */
+			background: -webkit-radial-gradient(center, ellipse cover,  rgba(206,206,206,1) 0%,rgba(255,255,255,1) 100%); /* Chrome10-25,Safari5.1-6 */
+			background: radial-gradient(ellipse at center,  rgba(206,206,206,1) 0%,rgba(255,255,255,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+			filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cecece', endColorstr='#ffffff',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+
+			&[start-color="red"],
+			&[home="red"]{
+				background: red;
+			}
+			&[start-color="blue"],
+			&[home="blue"]{
+				background: blue;
+			}
+			&[start-color="green"],
+			&[home="green"]{
+				background: green;
+			}
+			&[start-color="yellow"],
+			&[home="yellow"]{
+				background: yellow;
+			}
+			.virtualShadow{
+				width: 10px;
+				height: 10px;
+				background-color: #323232;
+				position: absolute;
+				top: 20px;
+				left: 20px;
+				z-index: 2;
+				.radius(10px);
+				&.attack{
+					width: 30px;
+					height: 30px;
+					top: 10px;
+					left: 10px;
+					background-color: transparent;
+					background-size: contain;
+					background-position: center;
+					background-image: url(../images/attack.png);
+				}
+			}
+		}
+		&.dice{
+			position: relative;
+			z-index: 2;
+			background-color: #000000;
+			background-image: url(../images/dice.png);
+			background-position: center;
+			background-size: 114%;
+			cursor: pointer;
+			opacity: 0;
+			&.show{
+				opacity: 1;
+			}
+			&.animation{
+				transform: scale(1.5);
+				  -webkit-animation: changecollors 2s infinite;
+				  /* Safari 4+ */
+				  -moz-animation: changecollors 2s infinite;
+				  /* Fx 5+ */
+				  -o-animation: changecollors 2s infinite;
+				  /* Opera 12+ */
+				  animation: changecollors 2s infinite;
+				  /* IE 10+, Fx 29+ */								
+				.transition;
+			}
+			.result{
+				width: 100%;
+				height: 100%;
+				.background;
+				&[dice-result="1"]{
+					background-image: url(../images/dice/dice1.png);
+				}
+				&[dice-result="2"]{
+					background-image: url(../images/dice/dice2.png);
+				}
+				&[dice-result="3"]{
+					background-image: url(../images/dice/dice3.png);
+				}
+				&[dice-result="4"]{
+					background-image: url(../images/dice/dice4.png);
+				}
+				&[dice-result="5"]{
+					background-image: url(../images/dice/dice5.png);
+				}
+				&[dice-result="6"]{
+					background-image: url(../images/dice/dice6.png);
+				}
+			}
+		}
+
+	}
+}
+
+.figuresContainer{
+	position: absolute;
+	width: ~"calc(100% - 200px)";
+	left: 130px;
+	top: 0;
+	.close{
+		position: absolute;
+		right: 7px;
+		bottom: 5px;
+		width: 20px;
+		height: 20px;
+		line-height: 18px;
+		text-align: center;
+		color: #ffffff;
+		background-color: #000000;
+		cursor: pointer;
+		font-family: FontAwesome;
+		.radius(20px);
+	}
+	.this{
+		display: none;
+		position: absolute;
+		right: 0;
+		top: 0;
+		width: 30px;
+		height: 30px;
+		line-height: 28px;
+		text-align: center;
+		color: #ffffff;
+		font-family: FontAwesome;
+		background-color: green;
+		cursor: pointer;
+	}
+}
+
+.playerFigures{
+	position: relative;
+	width: 100px;
+	height: 104px;
+	display: inline-block;
+	padding-bottom: 35px;
+	padding-left: 30px;
+	padding-top: 3px;
+	background-color: rgba(255, 255, 255, 0.5);
+	.roboto;
+	.beforeafter;
+	&:nth-child(n+2){
+		border-left: 2px solid #323232;
+	}
+	&[order]{
+		&:before{
+			position: absolute;
+			left: 9px;
+			top: 0;
+			font-size: 26px;
+			text-shadow: 1px 1px #000000;
+			color: #ffffff;
+			line-height: 60px;
+			font-weight: bold;
+			padding-top: 5px;
+		}
+	}
+	&[order="1"]{
+		&:before{
+			content: '1';
+		}
+	}
+	&[order="2"]{
+		&:before{
+			content: '2';
+		}
+	}
+	&[order="3"]{
+		&:before{
+			content: '3';
+		}
+	}
+	&[order="4"]{
+		&:before{
+			content: '4';
+		}
+	}
+	&.red{
+		&.scale{
+			border-bottom: 10px solid #dd0000;
+			background-color: lighten(#dd0000, 25%);
+		}
+		.figure{
+			background-image: url(../images/figure_red.png);
+		}
+	}
+	&.blue{
+		&.scale{
+			border-bottom: 10px solid #0000db;
+			background-color: lighten(#0000db, 25%);
+		}
+		.figure{
+			background-image: url(../images/figure_blue.png);
+		}
+	}
+	&.green{
+		&.scale{
+			border-bottom: 10px solid #016401;
+			background-color: lighten(#016401, 25%);
+		}
+		.figure{
+			background-image: url(../images/figure_green.png);
+		}
+	}
+	&.yellow{
+		&.scale{
+			border-bottom: 10px solid #dbdb00;
+			background-color: lighten(#dbdb00, 25%);
+		}
+		.figure{
+			background-image: url(../images/figure_yellow.png);
+		}
+	}
+	&.scale{
+		.transition;
+	}
+	>div{
+		width: @playerFigureSize;
+		height: @playerFigureSize;
+		float: left;
+		margin-right: 3px;
+		margin-bottom: 3px;
+		cursor: pointer;
+		.radius(@playerFigureSize);
+		.background;
+	}
+}
+
+
+.figure{
+	.field &{
+		width: 40px;
+		height: 40px;
+		position: relative;
+		left: 5px;
+		top: 5px;
+		z-index: 1;
+		cursor: pointer;
+		.radius(20px);
+		.background;
+
+		&[player="red"]{
+			background-image: url(../images/figure_red.png);
+		}
+		&[player="blue"]{
+			background-image: url(../images/figure_blue.png);
+		}
+		&[player="green"]{
+			background-image: url(../images/figure_green.png);
+		}
+		&[player="yellow"]{
+			background-image: url(../images/figure_yellow.png);
+		}
+		&.animation{
+			-webkit-animation: changescale 1s infinite;
+			/* Safari 4+ */
+			-moz-animation: changescale 1s infinite;
+			/* Fx 5+ */
+			-o-animation: changescale 1s infinite;
+			/* Opera 12+ */
+			animation: changescale 1s infinite;
+			/* IE 10+, Fx 29+ */
+			.transition;
+		}
+	}
+	&.animation{
+		-webkit-animation: changescale 1s infinite;
+		/* Safari 4+ */
+		-moz-animation: changescale 1s infinite;
+		/* Fx 5+ */
+		-o-animation: changescale 1s infinite;
+		/* Opera 12+ */
+		animation: changescale 1s infinite;
+		/* IE 10+, Fx 29+ */								
+		.transition;
+	}
+}
+
+
+
+
+.infoArea{
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 70px;
+	background-color: #676767;
+	*{
+		.roboto;
+	}
+	.infoMsg{
+		display: inline-block;
+		position: absolute;
+		right: 0;
+		top: 0;
+		max-width: 0;
+		height: 70px;
+		overflow: hidden;
+		.beforeafter;
+		.transition;
+		&.show{
+			padding: 0 20px;
+			max-width: 100%;
+			background-color: rgba(255, 255, 255, 0.5);
+		}
+		.msg{
+			width: 100%;
+			line-height: 70px;
+			font-size: 20px;
+			color: #ffffff;
+			text-align: center;
+		}
+	}
+	.actionBtn{
+		display: inline-block;
+		width: 130px;
+		line-height: 70px;
+		text-align: center;
+		background-color: #336699;
+		color: #ffffff;
+		padding: 0 10px;
+		cursor: pointer;
+	}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
